@@ -1,0 +1,19 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="navbar-inner">
+    <div class="container">
+      <%= link_to "AVCIV", '#', id: "logo" %>
+      <nav>
+        <ul class="nav pull-right">
+          <% if current_user %>
+          <li><%= link_to current_user.name if current_user %></li>
+          <li><%= link_to 'Вихід', logout_path %></li>
+          <% else %>
+          <li><%= link_to 'Головна', root_path %></li>
+          <li><%= link_to 'Реєстрація', registration_path %></li>
+          <li><%= link_to 'Вхід', header_sign_in_path %></li>
+          <% end %>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>

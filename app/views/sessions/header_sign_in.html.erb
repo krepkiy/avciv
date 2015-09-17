@@ -1,0 +1,13 @@
+<% provide(:title, 'Знайти') %>
+<h1>Sessions#header_sign_in</h1>
+<p>Find me in app/views/sessions/header_sign_in.html.erb</p>
+<p>Сторінка для входу(пошук ссилок компаній)</p>
+
+<%= form_tag header_sign_in_path do %>
+    <div class="field">
+      <%= text_field_tag :email %>
+    </div><br>
+    <div class="action"><br>
+      <%= submit_tag 'Отримати ссилку', class:"btn btn-primary" %>
+    </div>
+<% end %>

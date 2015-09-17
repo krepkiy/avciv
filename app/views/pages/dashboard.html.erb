@@ -1,0 +1,7 @@
+<% provide(:title, 'Головна панель') %>
+<h1>Pages#dashboard</h1>
+<p>Find me in app/views/pages/dashboard.html.erb</p>
+<p>Головна панель. Сторінка після аутентифікації(Домашня сторінка для користувача-компанії)</p>
+<% if current_user %>
+<li><%= link_to 'Створити юзера', users_path %></li>
+<% end %>

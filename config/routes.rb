@@ -1,8 +1,22 @@
 Rails.application.routes.draw do
-  get 'users/new'
+  get 'login', to: 'sessions#login'
+
+  get 'logout', to: 'sessions#logout'
+
+  post 'sessions', to: 'sessions#create'
+  get 'header_sign_in', to: 'sessions#header_sign_in'
+  post 'header_sign_in', to: 'sessions#find_company'
+
+  get 'registration', to: 'companies#new'
+  post 'companies', to: 'companies#create'
+
+  get 'users' => 'users#new'
+
+  get 'dashboard', to: 'pages#dashboard'
+#  match 'dashboard', to: 'pages#dashboard', constraints: {subdomain: /.+/ }, via: [:get]
 
   root 'pages#index'
-#  root 'users#new'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

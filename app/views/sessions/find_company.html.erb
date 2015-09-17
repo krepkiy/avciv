@@ -1,0 +1,13 @@
+<% provide(:title, 'URL адреси компаній') %>
+<h1>sessions#find_company</h1>
+<p>Find me in app/views/sessions/find_company.html.erb</p>
+<p>Адреси компаній для входу</p>
+
+<table class="company">
+  <% @company_url.each do |company| %>
+      <tr>
+        <td><%= link_to "http://" + company.url + @f_company, login_url(host: company.url + @f_company) %></td>
+      </tr>
+  <% end %>
+</table>
+
