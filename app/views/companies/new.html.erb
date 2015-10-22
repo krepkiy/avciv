@@ -2,7 +2,7 @@
 <h1>Companies#new</h1>
 <p>Find me in app/views/companies/new.html.erb</p>
 <p>Сторінка реєстрації компанії та першого користувача</p>
-<%= form_for(@company) do |f| %>
+<%= form_for @company do |company_form| %>
     <% if @company.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(@company.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -15,14 +15,14 @@
         </div>
     <% end %>
     <div class="field">
-      <%= f.label 'Назва компанії' %><br>
-      <%= f.text_field :name %>
+      <%= company_form.label 'Назва компанії' %><br>
+      <%= company_form.text_field :name %>
     </div><br>
     <div class="field">
-      <%= f.label 'URL компанії' %><br>
-      <%= f.text_field :url %>
+      <%= company_form.label 'URL компанії' %><br>
+      <%= company_form.text_field :url %>
     </div><br>
-    <%= f.fields_for :users do |users_form| %>
+    <%= company_form.fields_for :users do |users_form| %>
         <div class="field">
           <%= users_form.label 'Ім’я користувача' %><br>
           <%= users_form.text_field :name %>
@@ -37,7 +37,7 @@
         </div>
     <% end %>
     <div class="action"><br>
-      <%= f.submit 'Зареєструватись', class:"btn btn-primary" %>
+      <%= submit_tag 'Зареєструватись', class:"btn btn-primary" %>
     </div>
 
 <% end %>

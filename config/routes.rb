@@ -11,9 +11,12 @@ Rails.application.routes.draw do
   post 'companies', to: 'companies#create'
 
   get 'users' => 'users#new'
+  post 'users', to: 'users#create'
 
-  get 'dashboard', to: 'pages#dashboard'
+#  get 'dashboard', to: 'pages#dashboard'
+#  match '', to: 'companies#show', constraints: {subdomain: /.+/ }, via: [:get]
 #  match 'dashboard', to: 'pages#dashboard', constraints: {subdomain: /.+/ }, via: [:get]
+  match 'dashboard', to: 'pages#dashboard', constraints: {subdomain: /.+/ }, via: [:get]
 
   root 'pages#index'
 

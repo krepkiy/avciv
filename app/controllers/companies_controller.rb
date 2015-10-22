@@ -4,13 +4,16 @@ class CompaniesController < ApplicationController
     @company.users.build
   end
 
+  def show
+
+  end
+
   def create
     @company = Company.new(company_params)
-    if @company.save
-      @user_owner = User.find_by(id: @company)
-      @user_owner.update(owner: 'true')
 
-      session[:user_id] = @user_id
+    if @company.save
+      @company.users.find_by(params[:company_id]).update(owner: 'true')
+
       flash.now[:success] = "Company was successfully created."
       redirect_to root_path
     else
@@ -21,7 +24,7 @@ class CompaniesController < ApplicationController
 
   private
   def company_params
-    params.require(:company).permit(:name, :url, users_attributes: [:id, :name, :email, :password])
+    params.require(:company).permit(:name, :url, users_attributes: [:name, :email, :password, :owner])
   end
 
 end

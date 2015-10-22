@@ -4,10 +4,9 @@
 <p>Адреси компаній для входу</p>
 
 <table class="company">
-  <% @company_url.each do |company| %>
+  <% @companies_url.each do |company| %>
       <tr>
-        <td><%= link_to "http://" + company.url + @f_company, login_url(host: company.url + @f_company) %></td>
+        <td><%= link_to login_url(subdomain: company + '.avciv'), login_url(subdomain: company + '.avciv') %><br><br></td>
       </tr>
   <% end %>
 </table>
-

@@ -14,3 +14,5 @@
       <%= submit_tag 'Увійти', class:"btn btn-primary" %>
     </div>
 <% end %>
+<%= @test %>
+<%= current_user.name if session[:user_id] %>
