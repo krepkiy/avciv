@@ -20,6 +20,7 @@ class CompaniesController < ApplicationController
       flash.now[:danger] = "Could not save company"
       render :new
     end
+
   end
 
   private
